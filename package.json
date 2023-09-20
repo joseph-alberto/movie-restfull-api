@@ -4,7 +4,7 @@
   "description": "Web Service for Movie RESTFull API",
   "main": "server.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=7500 --detectOpenHandles",
     "start": "cross-env NODE_ENV=development node -r dotenv/config server.js"
   },
   "author": "Joseph Alberto",
