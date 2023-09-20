@@ -4,8 +4,8 @@ const { sequelize } = require("../models");
 
 describe('Test movies routes', () => {
 
-  beforeAll(() => {
-    sequelize.sync()
+  beforeAll(async () => {
+    await sequelize.sync()
   })
 
   test('GET /movies, it should retrived all movies data', async () => {
