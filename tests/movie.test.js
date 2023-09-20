@@ -35,7 +35,7 @@ describe('Test movies routes', () => {
     expect(typeof response.body.data.movie).toBe('object')
   })
 
-  test('PATCH /movies, it should delete movie data', async () => {
+  test('PATCH /movies, it should update movie data', async () => {
     const payload = {
       title: "a",
       description: "b",
@@ -56,7 +56,7 @@ describe('Test movies routes', () => {
     }
 
     const response = await request(app)
-      .delete(`/movies/${create.body.data.movie.id}`)
+      .patch(`/movies/${create.body.data.movie.id}`)
       .send(payload2)
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
@@ -67,6 +67,7 @@ describe('Test movies routes', () => {
   })
 
   test('DELETE /movies, it should delete movie data', async () => {
+    // Create movie
     const payload = {
       title: "Pengabdi Setan 5 Comunion",
       description: "adalah sebuah film horror Indonesia tahun 2022 yang disutradarai dan ditulis oleh Joko Anwar.",
@@ -79,8 +80,9 @@ describe('Test movies routes', () => {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
 
+    // 
     const response = await request(app)
-      .patch(`/movies/${create.body.data.movie.id}`)
+      .delete(`/movies/${create.body.data.movie.id}`)
       .send(payload)
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
