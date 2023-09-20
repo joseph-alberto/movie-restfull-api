@@ -1,7 +1,12 @@
 const request = require("supertest");
 const app = require("../app");
+const { sequelize } = require("../models");
 
 describe('Test movies routes', () => {
+
+  beforeAll(() => {
+    sequelize.sync()
+  })
 
   test('GET /movies, it should retrived all movies data', async () => {
     const response = await request(app).get('/movies')
